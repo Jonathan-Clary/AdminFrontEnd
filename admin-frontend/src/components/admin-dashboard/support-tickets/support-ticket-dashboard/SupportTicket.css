@@ -1,0 +1,36 @@
+.nav-link {
+    color: rgba(0, 0, 0, 0.548)!important;
+}
+
+.nav-link.active {
+    font-weight: 500;
+    color: rgb(0, 0, 0) !important;
+}
+
+.top-container {
+    min-width: 100vw;
+    margin-top: 1%;
+   
+}
+.btn-circle {
+    width: 50px!important;  
+    height: 50px!important; 
+    padding: 0!important;   
+    border-radius: 50%!important; 
+    display: flex!important;
+    align-items: center!important;
+    justify-content: center!important;
+    text-align: center!important;
+}
+
+.rows {
+    cursor: pointer;
+}
+.rows:hover {
+  transform: scale(1.01);
+  color: rgb(126, 159, 250);
+}
+
+body {
+    overflow-y: scroll;
+}

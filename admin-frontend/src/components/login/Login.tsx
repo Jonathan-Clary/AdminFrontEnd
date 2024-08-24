@@ -23,7 +23,6 @@ export const Login: React.FC = () => {
         }
     };
 
-
     return (
         <Container className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
             <Card className="login-card shadow">

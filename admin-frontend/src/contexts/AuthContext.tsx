@@ -2,7 +2,6 @@ import { createContext, ReactNode, useContext, useEffect, useState } from "react
 import { useNavigate } from "react-router-dom";
 import createAxiosInstance from "../services/AxiosInstance";
 
-// local interface in the event for context only (global interface will most likely change)
 interface User {
     userId: number;
     email: string;

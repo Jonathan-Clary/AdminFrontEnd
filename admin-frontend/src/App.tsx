@@ -4,8 +4,8 @@ import { useAuth } from './contexts/AuthContext';
 import { Login } from './components/login/Login';
 import { NavBar } from './components/nav-bar/NavBar';
 import { AdminDashboard } from './components/admin-dashboard/AdminDashboard';
-import { SupportTickets } from './components/support-tickets/SupportTickets';
-import { ManageUsers } from './components/admin-dashboard/manage-user/ManageUsers';
+import { SupportTickets } from './components/admin-dashboard/support-tickets/support-ticket-dashboard/SupportTickets';
+import { ManageUsers } from './components/admin-dashboard/manage-user-dashboard/ManageUsers';
 import { Analytics } from './components/admin-dashboard/analytics/Analytics';
 
 function App() {

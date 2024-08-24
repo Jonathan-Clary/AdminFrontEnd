@@ -3,10 +3,13 @@ import { TicketTypeEnum } from "../enums/TicketTypeEnum";
 
 export interface SupportTicketInterface {
     supportTicketId?: number;
-    // User HERE
+    userId: number;
+    firstName: string;
+    lastName: string;
+    email: string;
     status: TicketStatusEnum;
     description: string;
     type: TicketTypeEnum;
-    createdAt?: Date;
-    resolvedAt?: Date;
+    createdDate: number;
+    resolvedDate?: number;
 }
