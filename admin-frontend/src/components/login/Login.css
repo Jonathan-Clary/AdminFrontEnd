@@ -1,0 +1,9 @@
+
+.login-card-header {
+    background-image: url('../../../public/images/admin-login-image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 500px!important;
+    height: 250px!important;
+}
+
