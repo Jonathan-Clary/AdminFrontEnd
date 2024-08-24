@@ -4,6 +4,7 @@ import { useAuth } from "../../contexts/AuthContext";
 
 
 export const NavBar: React.FC = () => {
+  const {user} = useAuth();
 
     const { logout } = useAuth();
     const handelLogout = () => {
@@ -12,15 +13,14 @@ export const NavBar: React.FC = () => {
 
     return (
         <Navbar className="navbar bg-dark border-bottom border-body" data-bs-theme="dark"  sticky='top'>
-  
-        <Navbar.Brand className='fw-bold fs-3 ms-5' as={Link} to="/dashboard">
+        <Navbar.Brand className='fw-bold fs-3 ms-5' as={Link} to="/">
           ADMIN TRAVEL
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end me-5">
           <div className='me-5'>
           <Navbar.Text style={{ color: 'white' }}>
-           TEMP
+           {user?.email}
           </Navbar.Text>
           </div>
           <Nav.Link onClick={() => handelLogout()}>
