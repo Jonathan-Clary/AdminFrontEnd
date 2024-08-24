@@ -8,6 +8,7 @@ import { TicketTypeEnum } from '../../enums/TicketTypeEnum';
 import { SupportTicketTable } from './support-ticket-table/SupportTicketTable';
 import createAxiosInstance from "../../services/AxiosInstance";
 import { useAuth } from '../../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 
 /* 
@@ -29,7 +30,7 @@ export const SupportTickets: React.FC = () => {
     const axiosInstance = createAxiosInstance(token);
     const [searchTerm, setSearchTerm] = useState<string>(''); // search box input state. 
     const [reset, setReset] = useState(false);
-
+    const navigate = useNavigate();
     const getSupportAllTickets = async () => {
         try {
             const response = await axiosInstance.get('/admin/support/get/all');
@@ -88,6 +89,7 @@ export const SupportTickets: React.FC = () => {
 
     return (
         <Container>
+            <Button onClick={() => navigate('/')}> Back </Button>
             <Card className='mt-5 shadow'>
                 <Card.Header>
                     <Nav justify variant="tabs" defaultActiveKey="#pending-tickets">
