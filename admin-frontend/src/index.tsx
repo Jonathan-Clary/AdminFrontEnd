@@ -16,15 +16,15 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <AuthProvider>
-        <GlobalProvider>
-          <App />
-        </GlobalProvider>
-      </AuthProvider>
-    </BrowserRouter>
-  </React.StrictMode>
+
+  <BrowserRouter>
+    <AuthProvider>
+      <GlobalProvider>
+        <App />
+      </GlobalProvider>
+    </AuthProvider>
+  </BrowserRouter>
+
 );
 
 // If you want to start measuring performance in your app, pass a function

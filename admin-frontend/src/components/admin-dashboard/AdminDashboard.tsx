@@ -9,7 +9,7 @@ export const AdminDashboard: React.FC = () => {
         <>
             <Container className="mt-5 d-flex justify-content-center">
                 <Card className="shadow text-center m-4" style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src='images/manage-users-image.png' />
+                    <Card.Img variant="top" src='images/manage-users-image.png'  loading="lazy"/>
                     <Card.Body>
                         <Card.Title>Manage Employees</Card.Title>
                         <Card.Text>
@@ -20,7 +20,7 @@ export const AdminDashboard: React.FC = () => {
                 </Card>
 
                 <Card className="shadow text-center m-4" style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src='images/support-image.jpg' />
+                    <Card.Img variant="top" src='images/support-image.jpg' loading="lazy" />
                     <Card.Body>
                         <Card.Title>Support Tickets</Card.Title>
                         <Card.Text>
@@ -31,7 +31,7 @@ export const AdminDashboard: React.FC = () => {
                 </Card>
 
                 <Card className="shadow text-center m-4" style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src='images/analytics-image.png' />
+                    <Card.Img variant="top" src='images/analytics-image.png'  loading="lazy"/>
                     <Card.Body>
                         <Card.Title>View Analytics</Card.Title>
                         <Card.Text>

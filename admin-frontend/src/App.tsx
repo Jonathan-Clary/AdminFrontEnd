@@ -7,14 +7,18 @@ import { AdminDashboard } from './components/admin-dashboard/AdminDashboard';
 import { SupportTickets } from './components/admin-dashboard/support-tickets/support-ticket-dashboard/SupportTickets';
 import { ManageUsers } from './components/admin-dashboard/manage-user-dashboard/ManageUsers';
 import { Analytics } from './components/admin-dashboard/analytics/Analytics';
+import { CustomToast } from './components/toast/CustomToast';
+import { useGlobalContext } from './contexts/GlobalContext';
 
 function App() {
   const { token } = useAuth();
+  const {toastBg} = useGlobalContext();
 
   return (
     <div className="App">
+      {/* Add check to hide navBar if @ login page */}
       {token != null ? <>{<NavBar/>}</> : <></>}
-
+      <CustomToast bg={toastBg} />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={token ? <AdminDashboard /> : <Navigate to="/login" />} />

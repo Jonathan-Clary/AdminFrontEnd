@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import createAxiosInstance from "../services/AxiosInstance";
 
 interface User {
-    userId: number;
+    userId: string;
     email: string;
 }
 
@@ -42,7 +42,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     const login = async (email: string, password: string) => {
         try {
             const response = await axiosInstance.post('/admin/login', { email, password });
-            const { token, userId, email: userEmail }: { token: string; userId: number, email: string } = response.data;
+            const { token, userId, email: userEmail }: { token: string; userId: string, email: string } = response.data;
             setToken(token);
             const user: User = { userId, email: userEmail};
             localStorage.setItem('token', token); // storing token in local storage (user browser temp storage)
@@ -54,7 +54,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             console.error('Login Failed: ', error);
         }
     }
-
+    
     const logout = () => {
         setToken(null);
         setUser(null);

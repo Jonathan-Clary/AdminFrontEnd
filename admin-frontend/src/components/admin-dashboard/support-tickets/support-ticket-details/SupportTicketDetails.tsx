@@ -16,7 +16,7 @@ interface SupportTicketDetailsProps {
 export const SupportTicketDetails: React.FC<SupportTicketDetailsProps> = ({ setShow, show, ticket }) => {
     const { token } = useAuth();
     const axiosInstance = createAxiosInstance(token);
-    const { setTicketUpdated  } = useGlobalContext();
+    const { setTicketUpdated, toastMessage, showToast, handleToastShow  } = useGlobalContext();
 
     const handelResolve = async () => {
         try {
@@ -25,18 +25,15 @@ export const SupportTicketDetails: React.FC<SupportTicketDetailsProps> = ({ setS
                 { headers: {'Content-Type': 'text/plain'}}
             );
             setTicketUpdated();
-           
+            handleToastShow(`Support Ticket: ${ticket.supportTicketId} resolved successfuly!`, 'success');
         } catch (error) {
+            handleToastShow(`Support Ticket: ${ticket.supportTicketId} resolved failed :(`, 'danger');
             console.error('Error Resolving Ticket')
         }
     }
 
-    // Convert date from milliseconds to Date
-    const convertToDate = (timestamp: number) => {
-        const date = new Date(timestamp);
-        return format(date, 'MMMM d, yyyy @ hh:mm a');
-    };
     return  (
+        
         <Modal show={show} onHide={() => setShow(false)} size="lg" centered className="text-center">
             <Modal.Header closeVariant="white" closeButton className="bg-dark text-white">
                 <Modal.Title>Support Ticket Details</Modal.Title>
@@ -113,13 +110,13 @@ export const SupportTicketDetails: React.FC<SupportTicketDetailsProps> = ({ setS
                                     <Col md={6}>
                                         <Form.Group controlId="createdDate">
                                             <Form.Label>Created Date</Form.Label>
-                                            <Form.Control type="text" value={convertToDate(ticket.createdDate)} readOnly className="bg-light border-0" />
+                                            <Form.Control type="text" value={ticket.createdAt ? format(new Date(ticket.createdAt), 'MM/dd/yyyy @ hh:mm a') : 'N/A'} readOnly className="bg-light border-0" />
                                         </Form.Group>
                                     </Col>
                                     <Col md={6}>
                                         <Form.Group controlId="resolvedDate">
                                             <Form.Label>Resolved Date</Form.Label>
-                                            <Form.Control type="text" value={ticket.resolvedDate ? convertToDate(ticket.resolvedDate) : 'Not resolved yet'} readOnly className="bg-light border-0" />
+                                            <Form.Control type="text" value={ticket.resolvedDate ? format(new Date(ticket.resolvedDate), 'MM/dd/yyyy @ hh:mm a') : 'N/A'}  readOnly className="bg-light border-0" />
                                         </Form.Group>
                                     </Col>
                                 </Row>
@@ -133,5 +130,6 @@ export const SupportTicketDetails: React.FC<SupportTicketDetailsProps> = ({ setS
                 </Card>
             </Modal.Body>
         </Modal>
+       
     )
 }

@@ -27,7 +27,6 @@ export const NavBar: React.FC = () => {
             <i className="bi bi-box-arrow-right" style={{ fontSize: '25px', color: 'white' }}></i>
           </Nav.Link>
         </Navbar.Collapse>
-      
     </Navbar>
     )
 }

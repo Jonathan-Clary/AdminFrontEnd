@@ -10,6 +10,7 @@ export interface SupportTicketInterface {
     status: TicketStatusEnum;
     description: string;
     type: TicketTypeEnum;
-    createdDate: number;
-    resolvedDate?: number;
+    createdAt: string;
+    resolvedDate: string | null; 
+    note: string | null;
 }
