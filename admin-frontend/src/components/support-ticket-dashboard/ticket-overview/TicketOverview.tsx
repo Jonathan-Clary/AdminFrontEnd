@@ -1,7 +1,7 @@
 import { Card, Col, Container, Row } from "react-bootstrap";
-import { SupportTicketAnalytics } from "../analytics/SupportTicketAnalytics";
-import { SupportTicketInterface } from "../../../../interfaces/SuppportTicketInterface";
-
+import { SupportTicketAnalytics } from "./analytics/SupportTicketAnalytics";
+import { SupportTicketInterface } from "../../../interfaces/SuppportTicketInterface";
+import './TicketOverview.css'
 interface TicketOverviewProps {
     pendingCounter: number;
     overDueCounter: number;
@@ -23,7 +23,7 @@ export const TicketOverview: React.FC<TicketOverviewProps> = ({ pendingCounter, 
                         </Card.Header>
                         <Card.Body className="d-flex flex-column justify-content-between">
                             <Row className="flex-fill">
-                                <Col className="border rounded p-1 mb-3" onClick={() => statusFilter('pending')}>
+                                <Col className="border rounded p-1 mb-3 stat-container" onClick={() => statusFilter('pending')}>
                                     <Container className="d-flex align-items-center">
                                         <div className="btn-circle me-3 d-flex align-items-center justify-content-center bg-primary text-white">
                                             <h3 className="mb-0">{pendingCounter}</h3>
@@ -33,7 +33,7 @@ export const TicketOverview: React.FC<TicketOverviewProps> = ({ pendingCounter, 
                                 </Col>
                             </Row>
                             <Row className="flex-fill">
-                                <Col className="border rounded p-1 mb-3" onClick={() => statusFilter('overdue')}>
+                                <Col className="border rounded p-1 mb-3 stat-container" onClick={() => statusFilter('overdue')}>
                                     <Container className="d-flex align-items-center">
                                         <div className="btn-circle me-3 d-flex align-items-center justify-content-center bg-danger text-white">
                                             <h3 className="mb-0">{overDueCounter}</h3>
@@ -43,7 +43,7 @@ export const TicketOverview: React.FC<TicketOverviewProps> = ({ pendingCounter, 
                                 </Col>
                             </Row>
                             <Row className="flex-fill">
-                                <Col className="border rounded p-1" onClick={() => statusFilter('resolved')}>
+                                <Col className="border rounded p-1 stat-container" onClick={() => statusFilter('resolved')}>
                                     <Container className="d-flex align-items-center">
                                         <div className="btn-circle me-3 d-flex align-items-center justify-content-center bg-success text-white">
                                             <h3 className="mb-0">{resolvedTodayCounter}</h3>

@@ -1,8 +1,9 @@
 import { TicketStatusEnum } from "../enums/TicketStatusEnum";
 import { TicketTypeEnum } from "../enums/TicketTypeEnum";
+import { NoteInterface } from "./NoteInterface";
 
 export interface SupportTicketInterface {
-    supportTicketId?: number;
+    supportTicketId: string;
     userId: number;
     firstName: string;
     lastName: string;
@@ -12,5 +13,5 @@ export interface SupportTicketInterface {
     type: TicketTypeEnum;
     createdAt: string;
     resolvedDate: string | null; 
-    note: string | null;
+    note: NoteInterface | null;
 }

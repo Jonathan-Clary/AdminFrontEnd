@@ -1,17 +1,18 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { Pagination, Table } from 'react-bootstrap';
-import { SupportTicketInterface } from '../../../../interfaces/SuppportTicketInterface';
+import { SupportTicketInterface } from '../../../interfaces/SuppportTicketInterface';
 import { format, parseISO } from 'date-fns';
-import { SupportTicketDetails } from '../support-ticket-details/SupportTicketDetails';
+import { SupportTicketDetails } from './support-ticket-details/SupportTicketDetails';
 import './SupportTicketTable.css'
 
 
 interface SupportTicketTableProps {
     data: SupportTicketInterface[];
     reset?: boolean;
+    statusTab: string;
 }
 
-export const SupportTicketTable: React.FC<SupportTicketTableProps> = ({ data, reset }) => {
+export const SupportTicketTable: React.FC<SupportTicketTableProps> = ({ data, reset, statusTab }) => {
     const [sortData, setSortData] = useState<{ key: 'supportTicketId' | 'createdAt', direction: 'ascending' | 'descending' } | null>(null);
     const [selectedSupportTicket, setSelectedSupportTicket] = useState<SupportTicketInterface | null>(null);
     const [showTicketDetails, setShowTicketDetails] = useState(false);
@@ -71,6 +72,10 @@ export const SupportTicketTable: React.FC<SupportTicketTableProps> = ({ data, re
         if (str.length === 0) return str;
         return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
     };
+
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [statusTab])
 
 
 

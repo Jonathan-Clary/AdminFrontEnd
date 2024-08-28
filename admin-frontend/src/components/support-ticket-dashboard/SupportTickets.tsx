@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { Button, ButtonGroup, ButtonToolbar, Card, Col, Container, Dropdown, DropdownButton, Form, InputGroup, Nav, Pagination, Row, Spinner } from 'react-bootstrap';
 import './SupportTicket.css';
-import { SupportTicketInterface } from '../../../../interfaces/SuppportTicketInterface';
-import { TicketTypeEnum } from '../../../../enums/TicketTypeEnum';
-import { SupportTicketTable } from '../support-ticket-table/SupportTicketTable';
-import createAxiosInstance from "../../../../services/AxiosInstance";
-import { useAuth } from '../../../../contexts/AuthContext';
+import { SupportTicketInterface } from '../../interfaces/SuppportTicketInterface';
+import { TicketTypeEnum } from '../../enums/TicketTypeEnum';
+import { SupportTicketTable } from './support-ticket-table/SupportTicketTable';
+import createAxiosInstance from "../../services/AxiosInstance";
+import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import { TicketStatusEnum } from '../../../../enums/TicketStatusEnum';
-import { TicketOverview } from '../ticket-overview/TicketOverview';
+import { TicketStatusEnum } from '../../enums/TicketStatusEnum';
+import { TicketOverview } from './ticket-overview/TicketOverview';
 import { addDays, isBefore, startOfDay, subHours } from 'date-fns';
-import { useGlobalContext } from '../../../../contexts/GlobalContext';
+import { useGlobalContext } from '../../contexts/GlobalContext';
 
 
 
@@ -107,7 +107,7 @@ export const SupportTickets: React.FC = () => {
             filtered = filtered.filter(data => data.status.toUpperCase() === statusTab.toUpperCase());
         }
         if (searchTerm) {
-            filtered = filtered.filter(data => data.description.toUpperCase().includes(searchTerm.toUpperCase().trim()) || data.supportTicketId?.toFixed().startsWith(searchTerm.trim()));
+            filtered = filtered.filter(data => data.description.toUpperCase().includes(searchTerm.toUpperCase().trim()) || data.supportTicketId?.startsWith(searchTerm.trim()) || data.type?.startsWith(searchTerm.toUpperCase().trim()));
         }
 
         if (statusFilter === 'pending') {
@@ -230,7 +230,7 @@ export const SupportTickets: React.FC = () => {
                                         <Spinner animation="border" variant="primary" />
                                     </div>
                                 ) : (
-                                    <SupportTicketTable data={filterData} reset={reset} />
+                                    <SupportTicketTable data={filterData} reset={reset} statusTab={statusTab} />
                                 )}
                             </Card.Body>
                         </Card>
