@@ -8,7 +8,7 @@ interface DeleteConfirmationModalPorps {
     show: boolean;
     setShow: React.Dispatch<React.SetStateAction<boolean>>;
     selectedTicketId: string;
-    closeDetailModal: (s: boolean) => void;
+    closeDetailModal: (close: boolean) => void;
 }
 
 export const DeleteConfirmationModal: React.FC<DeleteConfirmationModalPorps> = ({ show, setShow, selectedTicketId, closeDetailModal }) => {
@@ -24,7 +24,6 @@ export const DeleteConfirmationModal: React.FC<DeleteConfirmationModalPorps> = (
             closeDetailModal(false);
         } catch (error) {
             handleToastShow(`Support Ticket failed to delete`, 'danger');
-
         }
     }
 

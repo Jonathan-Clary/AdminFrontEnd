@@ -77,7 +77,7 @@ export const SupportTicketDetails: React.FC<SupportTicketDetailsProps> = ({ setS
     return (
         <>
 
-            <Modal show={show} onHide={() => setShow(false)} size="xl" centered>
+            <Modal show={show} animation onHide={() => setShow(false)} size="xl" centered>
                 {!showResolveNoteModal && !showDeleteConfirmation &&
                     <>
                         <Modal.Header closeVariant="white" closeButton className="bg-dark text-white">
