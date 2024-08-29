@@ -18,7 +18,7 @@ export const DeleteConfirmationModal: React.FC<DeleteConfirmationModalPorps> = (
 
     const deleteSelectedTicket = async () => {
         try {
-            await axiosInstance.delete(`/admin/support/${selectedTicketId}`);
+            await axiosInstance.delete(`/support/${selectedTicketId}`);
             handleToastShow(`Support Ticket deleted successfuly!`, 'success');
             handleClose();
             closeDetailModal(false);

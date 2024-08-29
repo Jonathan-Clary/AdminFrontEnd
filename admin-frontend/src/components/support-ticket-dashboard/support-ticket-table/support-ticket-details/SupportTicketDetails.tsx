@@ -32,7 +32,7 @@ export const SupportTicketDetails: React.FC<SupportTicketDetailsProps> = ({ setS
         try {
             console.log("note" + note);
             console.log("ticket id: " + ticket.supportTicketId)
-            await axiosInstance.patch(`/admin/support/resolve/${ticket.supportTicketId}`, note,
+            await axiosInstance.patch(`/support/${ticket.supportTicketId}`, note,
                 { headers: { 'Content-Type': 'text/plain' } }
             );
             setTicketUpdated();
@@ -45,7 +45,7 @@ export const SupportTicketDetails: React.FC<SupportTicketDetailsProps> = ({ setS
 
     const getUserDetails = async () => {
         try {
-            const response = await axiosInstance.get(`/admin/user/${ticket.userId}`);
+            const response = await axiosInstance.get(`/user/${ticket.userId}`);
             setUser(response.data);
         } catch (error) {
             console.log('Error fetching user details');

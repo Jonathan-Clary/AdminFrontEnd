@@ -59,7 +59,7 @@ export const SupportTickets: React.FC = () => {
     const getSupportAllTickets = async () => {
         try {
             setLoading(true);
-            const response = await axiosInstance.get('/admin/support/get/all');
+            const response = await axiosInstance.get('/support/all');
             setSupportTicketData(response.data);
             //Count pending tickets
             setPendingCounter(response.data.filter((data: { status: TicketStatusEnum; }) => data.status === TicketStatusEnum.PENDING).length)
