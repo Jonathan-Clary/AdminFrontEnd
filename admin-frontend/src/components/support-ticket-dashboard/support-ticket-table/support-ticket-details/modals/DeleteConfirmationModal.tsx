@@ -37,7 +37,7 @@ export const DeleteConfirmationModal: React.FC<DeleteConfirmationModalPorps> = (
                     <Modal.Title><i className="bi bi-exclamation-octagon-fill text-danger"></i> Warning</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <h6 className="fs-4">Are you sure you want to delete this support ticket?</h6>
+                    <h6 className="fs-4 text-center">Are you sure you want to delete this support ticket?</h6>
                 </Modal.Body>
                 <Modal.Footer className="d-flex justify-content-between">
                     <Button variant="secondary" onClick={handleClose}>Close</Button>
