@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { SupportTicketAnalytics } from "../support-ticket-dashboard/ticket-overview/analytics/SupportTicketAnalytics";
 import { SupportTicketInterface } from "../../interfaces/SuppportTicketInterface";
 import createAxiosInstance from "../../services/AxiosInstance";
 import { useAuth } from "../../contexts/AuthContext";
+import { TopRatedHotel } from "./TopRatedHotel";
+import { RecentReviews } from "./RecentReviews";
 export const Analytics: React.FC = () => {
     const navigate = useNavigate();
     const [supportTickets, setSupportTickets] = useState<SupportTicketInterface[]>([]);
@@ -26,7 +27,7 @@ export const Analytics: React.FC = () => {
         };
 
         fetchSupportTickets();
-    }, []);
+    }, [axiosInstance]);
 
     return (
         <>
@@ -36,7 +37,8 @@ export const Analytics: React.FC = () => {
             {/* Support Tickets Analytics Section */}
             <h2>Support Tickets by Type</h2>
             <SupportTicketAnalytics supportTickets={supportTickets} loading={loading} />
-
+            <TopRatedHotel></TopRatedHotel>
+            <RecentReviews/>
             {/* Other sections like Top Rated Hotels and Recent Reviews */}
         </>
     );
