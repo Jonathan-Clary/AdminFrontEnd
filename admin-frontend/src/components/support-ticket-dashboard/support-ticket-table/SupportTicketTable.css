@@ -1,0 +1,8 @@
+
+.table-container {
+    min-height: 480px!important;
+}
+
+.clickable-row {
+    cursor: pointer;
+}

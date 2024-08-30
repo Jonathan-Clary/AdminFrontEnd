@@ -1,0 +1,9 @@
+.stat-container {
+    cursor: pointer!important;
+}
+
+.stat-container:hover {
+    transform: scale(1.005);
+    background-color: rgb(230, 230, 230);
+    
+}

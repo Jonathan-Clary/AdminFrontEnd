@@ -4,13 +4,27 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+
+import { AuthProvider } from './contexts/AuthContext';
+import { BrowserRouter } from 'react-router-dom';
+import { GlobalProvider } from './contexts/GlobalContext';
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+
+  <BrowserRouter>
+    <AuthProvider>
+      <GlobalProvider>
+        <App />
+      </GlobalProvider>
+    </AuthProvider>
+  </BrowserRouter>
+
 );
 
 // If you want to start measuring performance in your app, pass a function

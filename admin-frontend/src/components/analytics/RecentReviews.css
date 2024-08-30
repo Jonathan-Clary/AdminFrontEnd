@@ -1,0 +1,24 @@
+
+.carousel-indicators [data-bs-target] {
+    width: 10px !important;
+    height: 10px !important;
+    border: 1px solid transparent !important;
+    border-radius: 10px;
+    background-color:darkgoldenrod !important
+  }
+
+.carousel-indicators button:not(:first-child) {
+    margin-left: 0.5rem;
+  }
+.carousel-indicators .active {
+    background-color: #ff7a54 !important;
+  }
+/* Ensure carousel controls are visible */
+.carousel-control-prev, .carousel-control-next {
+    filter: invert(1); /* This will ensure the controls are visible if you use a dark background */
+}
+
+.this-carousel{
+    flex: auto;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
