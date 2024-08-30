@@ -22,7 +22,7 @@ export const TicketOverview: React.FC<TicketOverviewProps> = ({ pendingCounter, 
                             <h4>Support Ticket Overview</h4>
                         </Card.Header>
                         <Card.Body className="d-flex flex-column justify-content-between">
-                            <Row className="flex-fill">
+                            <Row className="">
                                 <Col className="border rounded p-1 mb-3 stat-container" onClick={() => statusFilter('pending')}>
                                     <Container className="d-flex align-items-center">
                                         <div className="btn-circle me-3 d-flex align-items-center justify-content-center bg-primary text-white">
@@ -32,7 +32,7 @@ export const TicketOverview: React.FC<TicketOverviewProps> = ({ pendingCounter, 
                                     </Container>
                                 </Col>
                             </Row>
-                            <Row className="flex-fill">
+                            <Row className="">
                                 <Col className="border rounded p-1 mb-3 stat-container" onClick={() => statusFilter('overdue')}>
                                     <Container className="d-flex align-items-center">
                                         <div className="btn-circle me-3 d-flex align-items-center justify-content-center bg-danger text-white">
@@ -42,7 +42,7 @@ export const TicketOverview: React.FC<TicketOverviewProps> = ({ pendingCounter, 
                                     </Container>
                                 </Col>
                             </Row>
-                            <Row className="flex-fill">
+                            <Row className="">
                                 <Col className="border rounded p-1 stat-container" onClick={() => statusFilter('resolved')}>
                                     <Container className="d-flex align-items-center">
                                         <div className="btn-circle me-3 d-flex align-items-center justify-content-center bg-success text-white">

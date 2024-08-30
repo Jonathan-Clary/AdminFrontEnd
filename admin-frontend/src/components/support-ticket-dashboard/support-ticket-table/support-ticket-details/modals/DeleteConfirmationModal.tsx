@@ -14,7 +14,7 @@ interface DeleteConfirmationModalPorps {
 export const DeleteConfirmationModal: React.FC<DeleteConfirmationModalPorps> = ({ show, setShow, selectedTicketId, closeDetailModal }) => {
     const { token } = useAuth();
     const axiosInstance = createAxiosInstance(token);
-    const { handleToastShow } = useGlobalContext();
+    const { setTicketUpdated, handleToastShow } = useGlobalContext();
 
     const deleteSelectedTicket = async () => {
         try {
@@ -22,6 +22,7 @@ export const DeleteConfirmationModal: React.FC<DeleteConfirmationModalPorps> = (
             handleToastShow(`Support Ticket deleted successfuly!`, 'success');
             handleClose();
             closeDetailModal(false);
+            setTicketUpdated();
         } catch (error) {
             handleToastShow(`Support Ticket failed to delete`, 'danger');
         }

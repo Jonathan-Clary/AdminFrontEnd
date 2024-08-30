@@ -167,7 +167,7 @@ export const SupportTicketDetails: React.FC<SupportTicketDetailsProps> = ({ setS
                                                 <Col md={6}>
                                                     <Form.Group controlId="userId">
                                                         <Form.Label className="font-weight-bold text-dark">User ID:</Form.Label>
-                                                        <span className="text-muted ms-2">{user?.userId ? user.userId : 'N/A'}</span>
+                                                        <span className="text-muted ms-2">{user?.adminId ? user.adminId : 'N/A'}</span>
                                                     </Form.Group>
                                                 </Col>
                                             </Row>

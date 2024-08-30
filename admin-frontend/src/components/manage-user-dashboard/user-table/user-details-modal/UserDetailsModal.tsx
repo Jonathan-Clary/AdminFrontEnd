@@ -8,9 +8,7 @@ interface UserDetailsModalProps {
 }
 
 export const UserDetailsModal: React.FC<UserDetailsModalProps> = ({ show, setShow, user }) => {
-    const notes = [];
 
-  
     return (
         <>
             <Modal size="lg" animation show={show} fullscreen='true' onHide={() => setShow(false)}>
@@ -22,7 +20,9 @@ export const UserDetailsModal: React.FC<UserDetailsModalProps> = ({ show, setSho
                         <Card.Body>
                             <Container>
                                 <Form className="mt-2">
+                                    <div className="text-center">
                                     <h3>Admin Information</h3>
+                                        </div>
                                     <hr className="my-3 section-divider" />
 
                                     <Row className="mb-3">
@@ -54,16 +54,7 @@ export const UserDetailsModal: React.FC<UserDetailsModalProps> = ({ show, setSho
                                             </Form.Group>
                                         </Col>
                                     </Row>
-                                    <hr className="my-3 divider" />
-
-                                    <Row className="mb-3">
-                                        <Col>
-                                            <Form.Group controlId="id">
-                                                <Form.Label className="font-weight-bold text-dark">Note:</Form.Label>
-                                                <span className="text-muted ms-2">{}</span>
-                                            </Form.Group>
-                                        </Col>
-                                    </Row>
+                                       
                                     <hr className="my-3 divider" />
 
                                     <Row className="mb-3">

@@ -1,50 +1,48 @@
 import { Button, Card, Container } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { UserTable } from "./user-table/UserTable";
+import './ManageUser.css'
+import {useState } from "react";
+
+
 
 export const ManageUsers: React.FC = () => {
     const navigate = useNavigate();
+    const [showAddModal, setShowAddModal] = useState<boolean>(false);
+    const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
+    const [isButtonEnabled, setIsButtonEnabled] = useState(false);
+
+ 
     return (
         <>
-            <Button onClick={() => navigate('/')}> Back </Button>
+
+           
+           
+
+            <Button className='ms-2 mt-3' size='lg' onClick={() => navigate('/')}> <i className="bi bi-caret-left-fill"></i> </Button>
             <Container className="mt-5 d-flex justify-content-center">
-                <Card className="shadow text-center m-4" style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src='images/manage-users-image.png'  loading="lazy"/>
-                    <Card.Body>
-                        <Card.Title>Create Admin</Card.Title>
-                        <Card.Text>
-
-                        </Card.Text>
-                        <Button variant="primary" onClick={() => navigate('/users')}>View All</Button>
-                    </Card.Body>
+                <Card className="shadow text-center m-4 clickable-card" onClick={() => setShowAddModal(true)} style={{ width: '10rem', height: '10rem' }}>
+                    <Card.Img className="p-3" variant="top" src='images/new.png' loading="lazy" />
                 </Card>
 
-                <Card className="shadow text-center m-4" style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src='images/support-image.jpg' loading="lazy" />
-                    <Card.Body>
-                        <Card.Title>Support Tickets</Card.Title>
-                        <Card.Text>
+                {isButtonEnabled ? <Card className="shadow text-center m-4 clickable-card" onClick={() => setShowDeleteModal(true)} style={{ width: '10rem', height: '10rem' }}>
+                    <Card.Img className="p-3" variant="top" src='images/image.png' loading="lazy" />
+                </Card> : <Card className="shadow text-center m-4" style={{ width: '10rem', height: '10rem' }}>
+                    <Card.Img className="p-3" variant="top" src='images/image.png' loading="lazy" style={{ filter: 'grayscale(100%)' }}/>
+                </Card>}
 
-                        </Card.Text>
-                        <Button variant="primary" onClick={() => navigate('/support-tickets')}>View All</Button>
-                    </Card.Body>
-                </Card>
+              
 
-                <Card className="shadow text-center m-4" style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src='images/analytics-image.png'  loading="lazy"/>
-                    <Card.Body>
-                        <Card.Title>View Analytics</Card.Title>
-                        <Card.Text>
 
-                        </Card.Text>
-                        <Button variant="primary" onClick={() => navigate('/analytics')}>View All</Button>
-                    </Card.Body>
-                </Card>
             </Container>
             <Container>
-               
-                <UserTable />
+
+                <UserTable isButtonEnabled={isButtonEnabled} setIsButtonEnabled={setIsButtonEnabled} show={showDeleteModal} setShow={setShowDeleteModal} showAdd={showAddModal} setShowAdd={setShowAddModal}  />
             </Container>
         </>
     )
+}
+
+function createAxiosInstance(token: string | null) {
+    throw new Error("Function not implemented.");
 }
