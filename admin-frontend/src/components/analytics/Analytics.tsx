@@ -7,12 +7,14 @@ import createAxiosInstance from "../../services/AxiosInstance";
 import { useAuth } from "../../contexts/AuthContext";
 import { TopRatedHotel } from "./TopRatedHotel";
 import { RecentReviews } from "./RecentReviews";
+import { useGlobalContext } from "../../contexts/GlobalContext";
 export const Analytics: React.FC = () => {
     const navigate = useNavigate();
     const [supportTickets, setSupportTickets] = useState<SupportTicketInterface[]>([]);
     const [loading, setLoading] = useState(true);
     const { token } = useAuth();
     const axiosInstance = createAxiosInstance(token);
+    const { handleToastShow } = useGlobalContext();
     
     useEffect(() => {
         const fetchSupportTickets = async () => {
@@ -20,6 +22,7 @@ export const Analytics: React.FC = () => {
                 const response = await axiosInstance.get('/support/all'); 
                 setSupportTickets(response.data);
                 setLoading(false);
+               
             } catch (error) {
                 console.error("Error fetching support tickets:", error);
                 setLoading(false); 
@@ -27,7 +30,7 @@ export const Analytics: React.FC = () => {
         };
 
         fetchSupportTickets();
-    }, [axiosInstance]);
+    }, []);
 
     return (
         <>

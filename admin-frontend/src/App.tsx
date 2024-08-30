@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       {/* Add check to hide navBar if @ login page */}
       {token != null ? <>{<NavBar/>}</> : <></>}
-      <CustomToast bg={toastBg} />
+      <CustomToast toastBg={toastBg} />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={token ? <AdminDashboard /> : <Navigate to="/login" />} />
